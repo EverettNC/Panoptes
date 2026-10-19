@@ -63,7 +63,7 @@ His words, carried as he said them:
   - **Escape character dropping.**
   - **Unescaped dots or asterisks that grep treats as wildcards when the client just meant the characters.**
   - **Case sensitivity — catching "User" versus "user" automatically, which is a constant failure point in sed replacement.**
-- "It needs to be a breathing operating system."
+- "It needs to be a breathing operating system." What breathing means, in his words (2026-10-19): "actively alive and ever evolving. Never stagnant, always learning, always searching for the learn."
 - The distance measure is our own algorithm. Ruled 2026-10-19: Levenshtein is out — "that's too rigid. That's math." Panoptes does not use a standard edit-distance measure.
 - **Proximity of logic.** "The query parser and the fault dictionary should live side by side. The thing defining the rules and the thing executing the rules neighbor."
 - **Keep the catalog at the root.** "The failure directory, whether it's JSON file, YAML, config, or a Python file, needs to live at the root level." Format is his call.
@@ -74,7 +74,11 @@ What that means for the build:
 1. The fault catalog is one file at the repo root. The query parser is the file beside it at the root. Nothing that defines a rule lives anywhere but the catalog; nothing that runs a rule lives anywhere but the parser.
 2. Each catalog entry carries: an id, a plain name, what the person meant, what grep or sed actually did, a real example, what Panoptes does instead, and the test that proves it.
 3. Every answer shows its reasoning: which catalog entries fired, what was matched literally and what was matched by distance or meaning, and for a miss, which entry explains the miss.
-4. Breathing: when a search misses and the person shows what they meant, that becomes a new catalog entry with its date, the way the Mouth-Cooperation list grows. Nothing is overwritten.
+4. Breathing — actively alive, never stagnant, always searching for the learn. Panoptes does not wait to be corrected. It goes looking for what it doesn't yet know:
+   - When a search misses and the person shows what they meant, that becomes a new catalog entry with its date, the way the Mouth-Cooperation list grows.
+   - On its own, it watches for what changed — a new commit, a new note, a port that opened or closed — and checks whether any answer it has given is now out of date.
+   - It notices its own near-misses: results the person passed over, words that came in that it couldn't place, and keeps them as open questions until they are learned.
+   - Every learned thing carries the date it was learned and what taught it. Nothing is overwritten; the old stays, deeper in the shell.
 
 ### Proposed seed entries for the catalog — Claude's proposal, waiting on Everett's OK
 
