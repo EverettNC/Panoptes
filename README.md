@@ -1,20 +1,22 @@
 # Panoptes
 
-A search that finds what you meant, not just what you typed, and always tells you what's true right now.
+## The One-Liner
 
-## What it is
+Panoptes is a search engine that finds what you meant, not just what you typed, and always tells you what is true right now.
 
-Most searches match letters. Type the wrong word, or ask about something that used to be true, and they hand it right back to you.
+## The Deeper Look
 
-Panoptes looks across everything at once: the repos, the vault, the working folders, the chat record, and what is actually running. It understands what is being asked for, checks the real thing before it answers, and knows when an old answer has been replaced by a newer one. It shows exactly why it matched something or missed it. And it never stops learning.
+Most searches just match letters. If you type the wrong character, or search for something that used to be true, traditional tools hand dead or broken results right back to you. Panoptes looks across everything at once—your files, your notes, your code, and what is actually running. It understands what you are asking for, checks the live system before it answers, and knows when an old answer has been replaced by a newer one. It shows you exactly why it found something or missed it, and it never stops learning.
 
-## Why it exists
+## The Story
 
-On 2026-10-19 a search for the 3D in the Athanor came back saying it didn't exist. It found an October 3 note saying so. The 3D campus was pushed that same evening and has been running ever since. Nothing marked the old note as out of date. Panoptes is built so that never happens again.
+I got tired of grep and sed kicking errors back over a single missed character, or serving up outdated code from two weeks ago as if it were still live. Standard tools force the human to adapt to the machine, and they have zero concept of time. I'm building Panoptes using a practical catalog of real human input patterns paired with my own time-stamped Conch memory architecture and the Supersedes Law. Instead of blindly scanning dead text, Panoptes tracks chronological truth—ensuring that what happened eight hours ago automatically overrides what happened two weeks ago, and giving you a complete, accurate view of your system as it exists right now.
+
+— Everett Christman
 
 ## Status
 
-Not built yet. The build order is written: see [BUILD.md](BUILD.md). Nothing in this README describes working code until the Progress section of BUILD.md says it does.
+Being built. The build order is [BUILD.md](BUILD.md). When its acceptance test passes on the Mac, "I'm building" above becomes "I built."
 
 ## The rules it lives under
 
