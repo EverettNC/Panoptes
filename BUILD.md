@@ -64,7 +64,7 @@ His words, carried as he said them:
   - **Unescaped dots or asterisks that grep treats as wildcards when the client just meant the characters.**
   - **Case sensitivity — catching "User" versus "user" automatically, which is a constant failure point in sed replacement.**
 - "It needs to be a breathing operating system."
-- The distance measure: "maybe the Levenshtein algorithm, or maybe we write our own algorithm." His call; not decided here.
+- The distance measure is our own algorithm. Ruled 2026-10-19: Levenshtein is out — "that's too rigid. That's math." Panoptes does not use a standard edit-distance measure.
 - **Proximity of logic.** "The query parser and the fault dictionary should live side by side. The thing defining the rules and the thing executing the rules neighbor."
 - **Keep the catalog at the root.** "The failure directory, whether it's JSON file, YAML, config, or a Python file, needs to live at the root level." Format is his call.
 - **Visible logic.** The client needs to know exactly why Panoptes matched or missed a string. "The logic must be immediately visible."
@@ -162,7 +162,6 @@ If item 2 is not first, the build is not done.
 
 - The port.
 - The catalog's format: JSON, YAML, a config file, or Python.
-- The distance measure: Levenshtein, or our own.
 - The proposed seed entries for the catalog: which go in.
 - How the chat record reaches the Mac.
 - Which local embedding model (from what his Ollama already holds).
