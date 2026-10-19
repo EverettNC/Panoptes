@@ -55,6 +55,48 @@ Everything below serves that paragraph.
 
 ---
 
+## The matching logic — Everett's design (2026-10-19)
+
+His words, carried as he said them:
+
+- Catalog the current issues developers have with grep and sed — "not just creating a flippant thing." Address them for real:
+  - **Escape character dropping.**
+  - **Unescaped dots or asterisks that grep treats as wildcards when the client just meant the characters.**
+  - **Case sensitivity — catching "User" versus "user" automatically, which is a constant failure point in sed replacement.**
+- "It needs to be a breathing operating system."
+- The distance measure: "maybe the Levenshtein algorithm, or maybe we write our own algorithm." His call; not decided here.
+- **Proximity of logic.** "The query parser and the fault dictionary should live side by side. The thing defining the rules and the thing executing the rules neighbor."
+- **Keep the catalog at the root.** "The failure directory, whether it's JSON file, YAML, config, or a Python file, needs to live at the root level." Format is his call.
+- **Visible logic.** The client needs to know exactly why Panoptes matched or missed a string. "The logic must be immediately visible."
+
+What that means for the build:
+
+1. The fault catalog is one file at the repo root. The query parser is the file beside it at the root. Nothing that defines a rule lives anywhere but the catalog; nothing that runs a rule lives anywhere but the parser.
+2. Each catalog entry carries: an id, a plain name, what the person meant, what grep or sed actually did, a real example, what Panoptes does instead, and the test that proves it.
+3. Every answer shows its reasoning: which catalog entries fired, what was matched literally and what was matched by distance or meaning, and for a miss, which entry explains the miss.
+4. Breathing: when a search misses and the person shows what they meant, that becomes a new catalog entry with its date, the way the Mouth-Cooperation list grows. Nothing is overwritten.
+
+### Proposed seed entries for the catalog — Claude's proposal, waiting on Everett's OK
+
+Real, documented grep and sed failures, offered as the first rows. None goes in without his word.
+
+- Regex characters taken literally by the person and as patterns by grep: `.` `*` `[` `]` `^` `$` `?` `+` `(` `)` `{` `}` `|` and the backslash itself.
+- The shell expands an unquoted `*` or `?` before grep ever sees it.
+- sed's delimiter colliding with the text: `s/a/b/` breaks on any path containing `/`.
+- macOS sed versus GNU sed: in-place edit is `sed -i ''` on his Mac and `sed -i` on Linux; the same command fails or writes a backup file depending on the machine.
+- Basic versus extended patterns: `\+` and `+` mean different things depending on `-E`.
+- Word edges: searching "read" also hits "ready" and "thread" unless word boundaries are asked for.
+- Line-bound matching: grep and sed work one line at a time, so a phrase broken across two lines is missed.
+- Curly versus straight quotes, and other look-alike characters, so text pasted from a document never matches text typed in a terminal.
+- Windows line endings (`\r\n`) that make a match fail at the end of a line.
+- Tabs versus spaces.
+- Binary files skipped without a word.
+- Hidden files and folders, and files the search was never told to enter.
+- Symlinks that loop back on themselves, like the "Obsidian Vault" link inside the vault.
+- Dictation drift: the word that came in is a sound-alike of the word meant — "Athenar" for Athanor, "Panoptis" for Panoptes, "Nibia" for Nebius. Spelling distance alone scores these poorly; a sound-based distance built on the 54 sounds his Vosk names would score them as near.
+
+---
+
 ## Stage 1 — One index, every record carries its time
 
 1. A single local store on the Mac (SQLite, one file). Each record holds:
@@ -119,6 +161,9 @@ If item 2 is not first, the build is not done.
 ## Waiting on Everett
 
 - The port.
+- The catalog's format: JSON, YAML, a config file, or Python.
+- The distance measure: Levenshtein, or our own.
+- The proposed seed entries for the catalog: which go in.
 - How the chat record reaches the Mac.
 - Which local embedding model (from what his Ollama already holds).
 - Whether Zoho mail and THE WHOLE HOUSE become sources now or later.
