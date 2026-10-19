@@ -115,9 +115,9 @@ Real, documented grep and sed failures, offered as the first rows. None goes in 
 
 ---
 
-## Stage 2 — Newer truth retires older truth
+## Stage 2 — The Supersedes Law: newer truth retires older truth
 
-This is the heart of it. The October 3 miss is the test.
+This is the heart of it, and Everett named it: the **Supersedes Law**. What happened eight hours ago automatically overrides what happened two weeks ago. The October 3 miss is the test.
 
 1. When a statement says a thing is missing ("not built," "no 3D," "doesn't exist") and a later artifact or a live check shows the thing exists, the statement is marked **superseded**, with a link to what superseded it and when.
 2. The same in the other direction: a statement that something exists, followed by a later artifact removing it, is superseded too.
@@ -174,3 +174,5 @@ If item 2 is not first, the build is not done.
 ## Progress
 
 (Empty. Tick each stage here as it is verified on the Mac.)
+
+When the acceptance test passes on the Mac, change "I'm building Panoptes" in README.md to "I built Panoptes," as Everett wrote it, and change the Status line to match.
