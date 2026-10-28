@@ -35,7 +35,7 @@ Everything below serves that paragraph.
 - The people the beings serve are clients, never "users." The beings are beings, never "nodes."
 - Every answer names which local model helped produce it (ALGM's rule).
 - Every search is written to an append-only, timestamped ledger he can open (HONESTY's rule: the machine's record beats anyone's account).
-- Do not merge to main. Push claude/* branches and report them. Merging is Everett's word.
+- Nothing is left unmerged. Everett, 2026-10-28: "From now on, there will never be unmerged shit left. It will be merged immediately." Each piece of work goes through its pull request and into main as soon as it is tested, and the branch is deleted. No branch stacks up.
 - Done means done on the Mac, not in a container.
 
 ---
